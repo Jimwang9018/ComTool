@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>939</width>
+    <height>555</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>555</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>ComTool</string>
@@ -350,7 +356,7 @@
             <property name="maximumSize">
              <size>
               <width>150</width>
-              <height>120</height>
+              <height>110</height>
              </size>
             </property>
             <property name="title">
@@ -475,6 +481,12 @@
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="QGroupBox" name="groupBox_2">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="title">
              <string>Receive Data</string>
             </property>
@@ -557,6 +569,12 @@
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
            <widget class="QGroupBox" name="groupBox_5">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>80</height>
+             </size>
+            </property>
             <property name="title">
              <string>Multi Send Data 1</string>
             </property>
@@ -611,6 +629,12 @@
           </item>
           <item>
            <widget class="QGroupBox" name="groupBox_9">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>80</height>
+             </size>
+            </property>
             <property name="title">
              <string>Multi Send Data 2</string>
             </property>
@@ -665,6 +689,12 @@
           </item>
           <item>
            <widget class="QGroupBox" name="groupBox_10">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>80</height>
+             </size>
+            </property>
             <property name="title">
              <string>Multi Send Data 3</string>
             </property>
@@ -719,6 +749,12 @@
           </item>
           <item>
            <widget class="QGroupBox" name="groupBox_11">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>80</height>
+             </size>
+            </property>
             <property name="title">
              <string>Multi Send Data 4</string>
             </property>
@@ -773,6 +809,12 @@
           </item>
           <item>
            <widget class="QGroupBox" name="groupBox_6">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>80</height>
+             </size>
+            </property>
             <property name="title">
              <string>Multi Send Data 5</string>
             </property>
@@ -843,7 +885,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>939</width>
      <height>23</height>
     </rect>
    </property>
