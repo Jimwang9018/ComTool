@@ -20,6 +20,7 @@ ComTool::ComTool(QWidget *parent)
     multiDendGroupBoxContrl(false);
     mSerialPort = new QSerialPort();
     mSerialPortInfo = new QSerialPortInfo();
+    mPortNameModel = new QStringListModel();
     mPortNameList = getPortNameList();
 
     axisX = new QValueAxis;
@@ -148,8 +149,10 @@ QStringList ComTool::getPortNameList()
         serialPortName << mSerialPortInfo->portName();
 
         if(!serialPortName.isEmpty()){
-            mPortNameModel = new QStringListModel(serialPortName, this);
+ //           mPortNameModel = new QStringListModel(serialPortName, this);
+            mPortNameModel->setStringList(serialPortName);
             ui->comboBoxPort->setModel(mPortNameModel);
+            ui->comboBoxPort->setCurrentText(serialPortName.first());
         }
     }
 
@@ -179,3 +182,196 @@ void ComTool::multiDendGroupBoxContrl(bool visible)
     }
 }
 
+void ComTool::on_pushButtonConnection_pressed()
+{
+    QStringList serialPortName;
+
+//    foreach (*mSerialPortInfo, QSerialPortInfo::availablePorts()) {
+//        serialPortName << mSerialPortInfo->portName();
+
+//        if(!mSerialPortInfo->portName().isEmpty()) {
+//            mPortNameModel->setStringList(serialPortName);//?
+//            ui->comboBoxPort->setModel(mPortNameModel);
+//        }
+//    }
+}
+
+void ComTool::on_pushButtonConnection_clicked()
+{
+    if(isSerialPortOpen) {
+        isSerialPortOpen = false;
+//        mSerialPort->close();
+        serialPortUiClose();
+        getPortNameList();
+    } else {
+        isSerialPortOpen = true;
+        serialPortUiOpen();
+    }
+}
+
+void ComTool::on_comboBoxPort_currentTextChanged(const QString &arg1)
+{
+
+}
+
+void ComTool::on_comboBoxBaudrate_currentIndexChanged(int index)
+{
+
+}
+
+void ComTool::on_comboBoxDataBits_currentIndexChanged(int index)
+{
+
+}
+
+void ComTool::on_comboBoxParity_currentIndexChanged(int index)
+{
+
+}
+
+void ComTool::on_comboBoxStopBits_currentIndexChanged(int index)
+{
+
+}
+
+void ComTool::on_comboBoxFlowType_currentIndexChanged(int index)
+{
+
+}
+
+void ComTool::on_radioButtonHex_clicked()
+{
+
+}
+
+void ComTool::on_radioButtonASCII_clicked()
+{
+
+}
+
+void ComTool::on_pushButtonClearReceive_clicked()
+{
+
+}
+
+void ComTool::on_radioButtonHex_2_clicked()
+{
+
+}
+
+void ComTool::on_radioButtonASCII_2_clicked()
+{
+
+}
+
+void ComTool::on_checkBoxLoopSend_stateChanged(int arg1)
+{
+
+}
+
+void ComTool::on_pushButtonClearSend_clicked()
+{
+
+}
+
+void ComTool::on_pushButtonMultiSend_clicked()
+{
+
+}
+
+void ComTool::on_pushButtonSend_clicked()
+{
+
+}
+
+void ComTool::on_pushButtonMultiSend1_clicked()
+{
+
+}
+
+void ComTool::on_checkBoxHex1_stateChanged(int arg1)
+{
+
+}
+
+void ComTool::on_pushButtonMultiSend2_clicked()
+{
+
+}
+
+void ComTool::on_checkBoxHex2_stateChanged(int arg1)
+{
+
+}
+
+void ComTool::on_pushButtonMultiSend3_clicked()
+{
+
+}
+
+void ComTool::on_checkBoxHex3_stateChanged(int arg1)
+{
+
+}
+
+void ComTool::on_pushButtonMultiSend4_clicked()
+{
+
+}
+
+void ComTool::on_checkBoxHex4_stateChanged(int arg1)
+{
+
+}
+
+void ComTool::on_pushButtonMultiSend5_clicked()
+{
+
+}
+
+void ComTool::on_checkBoxHex5_stateChanged(int arg1)
+{
+
+}
+
+void ComTool::serialPortUiClose()
+{
+    ui->comboBoxPort->setEnabled(true);
+    ui->comboBoxBaudrate->setEnabled(true);
+    ui->comboBoxDataBits->setEnabled(true);
+    ui->comboBoxParity->setEnabled(true);
+    ui->comboBoxStopBits->setEnabled(true);
+    ui->comboBoxFlowType->setEnabled(true);
+
+    ui->pushButtonSend->setEnabled(false);
+    ui->pushButtonMultiSend1->setEnabled(false);
+    ui->pushButtonMultiSend2->setEnabled(false);
+    ui->pushButtonMultiSend3->setEnabled(false);
+    ui->pushButtonMultiSend4->setEnabled(false);
+    ui->pushButtonMultiSend5->setEnabled(false);
+
+    if(ui->checkBoxLoopSend->isChecked())
+        ui->checkBoxLoopSend->setChecked(false);
+    ui->checkBoxLoopSend->setEnabled(false);
+    ui->pushButtonConnection->setText("Connection");
+}
+
+void ComTool::serialPortUiOpen()
+{
+    ui->comboBoxPort->setEnabled(false);
+    ui->comboBoxBaudrate->setEnabled(false);
+    ui->comboBoxDataBits->setEnabled(false);
+    ui->comboBoxParity->setEnabled(false);
+    ui->comboBoxStopBits->setEnabled(false);
+    ui->comboBoxFlowType->setEnabled(false);
+
+    ui->pushButtonSend->setEnabled(true);
+    ui->pushButtonMultiSend1->setEnabled(true);
+    ui->pushButtonMultiSend2->setEnabled(true);
+    ui->pushButtonMultiSend3->setEnabled(true);
+    ui->pushButtonMultiSend4->setEnabled(true);
+    ui->pushButtonMultiSend5->setEnabled(true);
+
+    ui->checkBoxLoopSend->setEnabled(true);
+    ui->pushButtonConnection->setText("Connected");
+}

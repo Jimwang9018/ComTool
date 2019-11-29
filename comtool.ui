@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>ComTool</class>
  <widget class="QMainWindow" name="ComTool">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -396,6 +399,9 @@
                <property name="text">
                 <string>Connection</string>
                </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
             </layout>
@@ -450,6 +456,9 @@
                  </property>
                  <property name="text">
                   <string>ASCII</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -527,10 +536,16 @@
                  <property name="text">
                   <string>ASCII</string>
                  </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="0">
                 <widget class="QCheckBox" name="checkBoxLoopSend">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -550,6 +565,9 @@
                </item>
                <item row="1" column="1">
                 <widget class="QSpinBox" name="spinBoxLoopTime">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -672,10 +690,16 @@
                  <property name="text">
                   <string>Multi Send</string>
                  </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
                 </widget>
                </item>
                <item>
                 <widget class="QPushButton" name="pushButtonSend">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -724,6 +748,9 @@
               <layout class="QVBoxLayout" name="verticalLayout_5">
                <item>
                 <widget class="QPushButton" name="pushButtonMultiSend1">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -784,6 +811,9 @@
               <layout class="QVBoxLayout" name="verticalLayout_6">
                <item>
                 <widget class="QPushButton" name="pushButtonMultiSend2">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -844,6 +874,9 @@
               <layout class="QVBoxLayout" name="verticalLayout_7">
                <item>
                 <widget class="QPushButton" name="pushButtonMultiSend3">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -904,6 +937,9 @@
               <layout class="QVBoxLayout" name="verticalLayout_8">
                <item>
                 <widget class="QPushButton" name="pushButtonMultiSend4">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -964,6 +1000,9 @@
               <layout class="QVBoxLayout" name="verticalLayout_9">
                <item>
                 <widget class="QPushButton" name="pushButtonMultiSend5">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
