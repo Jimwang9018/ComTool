@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>939</width>
+    <width>931</width>
     <height>555</height>
    </rect>
   </property>
@@ -34,7 +34,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QGroupBox" name="groupBox">
+           <widget class="QGroupBox" name="groupBoxPortSetting">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -48,7 +48,7 @@
              <item row="0" column="0">
               <layout class="QFormLayout" name="formLayout">
                <item row="0" column="0">
-                <widget class="QLabel" name="label">
+                <widget class="QLabel" name="labelPort">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -67,7 +67,7 @@
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QComboBox" name="comboBox">
+                <widget class="QComboBox" name="comboBoxPort">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -83,7 +83,7 @@
                 </widget>
                </item>
                <item row="1" column="0">
-                <widget class="QLabel" name="label_2">
+                <widget class="QLabel" name="labelBaudrate">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -102,7 +102,7 @@
                 </widget>
                </item>
                <item row="2" column="0">
-                <widget class="QLabel" name="label_3">
+                <widget class="QLabel" name="labelDataBits">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -121,7 +121,7 @@
                 </widget>
                </item>
                <item row="3" column="0">
-                <widget class="QLabel" name="label_4">
+                <widget class="QLabel" name="labelParity">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -140,7 +140,7 @@
                 </widget>
                </item>
                <item row="4" column="0">
-                <widget class="QLabel" name="label_5">
+                <widget class="QLabel" name="labelStopBits">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -159,7 +159,7 @@
                 </widget>
                </item>
                <item row="5" column="0">
-                <widget class="QLabel" name="label_6">
+                <widget class="QLabel" name="labelFlowType">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -178,7 +178,7 @@
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QComboBox" name="comboBox_2">
+                <widget class="QComboBox" name="comboBoxBaudrate">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -194,7 +194,7 @@
                 </widget>
                </item>
                <item row="2" column="1">
-                <widget class="QComboBox" name="comboBox_3">
+                <widget class="QComboBox" name="comboBoxDataBits">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -210,7 +210,7 @@
                 </widget>
                </item>
                <item row="3" column="1">
-                <widget class="QComboBox" name="comboBox_4">
+                <widget class="QComboBox" name="comboBoxParity">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -226,7 +226,7 @@
                 </widget>
                </item>
                <item row="4" column="1">
-                <widget class="QComboBox" name="comboBox_5">
+                <widget class="QComboBox" name="comboBoxStopBits">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -242,7 +242,7 @@
                 </widget>
                </item>
                <item row="5" column="1">
-                <widget class="QComboBox" name="comboBox_6">
+                <widget class="QComboBox" name="comboBoxFlowType">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -260,12 +260,18 @@
               </layout>
              </item>
              <item row="1" column="0">
-              <widget class="QPushButton" name="pushButton">
+              <widget class="QPushButton" name="pushButtonConnection">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
                  <height>40</height>
                 </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Arial</family>
+                 <pointsize>14</pointsize>
+                </font>
                </property>
                <property name="text">
                 <string>Connection</string>
@@ -276,7 +282,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_7">
+           <widget class="QGroupBox" name="groupBoxReceiveSetting">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -290,7 +296,7 @@
              <item row="0" column="0">
               <layout class="QFormLayout" name="formLayout_2">
                <item row="0" column="0">
-                <widget class="QRadioButton" name="radioButton">
+                <widget class="QRadioButton" name="radioButtonHex">
                  <property name="minimumSize">
                   <size>
                    <width>64</width>
@@ -309,7 +315,7 @@
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QRadioButton" name="radioButton_2">
+                <widget class="QRadioButton" name="radioButtonASCII">
                  <property name="minimumSize">
                   <size>
                    <width>64</width>
@@ -328,7 +334,7 @@
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QPushButton" name="pushButton_2">
+                <widget class="QPushButton" name="pushButtonClearReceive">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -352,7 +358,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_8">
+           <widget class="QGroupBox" name="groupBoxSendSetting">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -366,7 +372,7 @@
              <item row="0" column="0">
               <layout class="QFormLayout" name="formLayout_3">
                <item row="0" column="0">
-                <widget class="QRadioButton" name="radioButton_3">
+                <widget class="QRadioButton" name="radioButtonHex_2">
                  <property name="minimumSize">
                   <size>
                    <width>65</width>
@@ -385,7 +391,7 @@
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QRadioButton" name="radioButton_4">
+                <widget class="QRadioButton" name="radioButtonASCII_2">
                  <property name="minimumSize">
                   <size>
                    <width>65</width>
@@ -404,7 +410,7 @@
                 </widget>
                </item>
                <item row="1" column="0">
-                <widget class="QCheckBox" name="checkBox">
+                <widget class="QCheckBox" name="checkBoxLoopSend">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -423,7 +429,7 @@
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QSpinBox" name="spinBox">
+                <widget class="QSpinBox" name="spinBoxLoopTime">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -439,7 +445,7 @@
                 </widget>
                </item>
                <item row="2" column="1">
-                <widget class="QPushButton" name="pushButton_3">
+                <widget class="QPushButton" name="pushButtonClearSend">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -480,7 +486,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QGroupBox" name="groupBox_2">
+           <widget class="QGroupBox" name="groupBoxReceiveData">
             <property name="minimumSize">
              <size>
               <width>400</width>
@@ -492,13 +498,13 @@
             </property>
             <layout class="QGridLayout" name="gridLayout_5">
              <item row="0" column="0">
-              <widget class="QTextBrowser" name="textBrowser"/>
+              <widget class="QTextBrowser" name="textBrowserReceiveData"/>
              </item>
             </layout>
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_3">
+           <widget class="QGroupBox" name="groupBoxSendData">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -518,7 +524,7 @@
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_4">
                <item>
-                <widget class="QPushButton" name="pushButton_4">
+                <widget class="QPushButton" name="pushButtonMultiSend">
                  <property name="minimumSize">
                   <size>
                    <width>75</width>
@@ -537,7 +543,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_5">
+                <widget class="QPushButton" name="pushButtonSend">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -558,7 +564,7 @@
               </layout>
              </item>
              <item>
-              <widget class="QTextEdit" name="textEdit"/>
+              <widget class="QTextEdit" name="textEditSendData"/>
              </item>
             </layout>
            </widget>
@@ -568,7 +574,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <widget class="QGroupBox" name="groupBox_5">
+           <widget class="QGroupBox" name="groupBoxMultiSend1">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -580,12 +586,12 @@
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <item>
-              <widget class="QTextBrowser" name="textBrowser_2"/>
+              <widget class="QTextBrowser" name="textBrowserMultiSend1"/>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_5">
                <item>
-                <widget class="QPushButton" name="pushButton_6">
+                <widget class="QPushButton" name="pushButtonMultiSend1">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -604,7 +610,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QCheckBox" name="checkBox_2">
+                <widget class="QCheckBox" name="checkBoxHex1">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -628,7 +634,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_9">
+           <widget class="QGroupBox" name="groupBoxMultiSend2">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -640,12 +646,12 @@
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_5">
              <item>
-              <widget class="QTextBrowser" name="textBrowser_3"/>
+              <widget class="QTextBrowser" name="textBrowserMultiSend2"/>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_6">
                <item>
-                <widget class="QPushButton" name="pushButton_7">
+                <widget class="QPushButton" name="pushButtonMultiSend2">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -664,7 +670,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QCheckBox" name="checkBox_3">
+                <widget class="QCheckBox" name="checkBoxHex2">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -688,7 +694,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_10">
+           <widget class="QGroupBox" name="groupBoxMultiSend3">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -700,12 +706,12 @@
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_6">
              <item>
-              <widget class="QTextBrowser" name="textBrowser_4"/>
+              <widget class="QTextBrowser" name="textBrowserMultiSend3"/>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_7">
                <item>
-                <widget class="QPushButton" name="pushButton_8">
+                <widget class="QPushButton" name="pushButtonMultiSend3">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -724,7 +730,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QCheckBox" name="checkBox_4">
+                <widget class="QCheckBox" name="checkBoxHex3">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -748,7 +754,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_11">
+           <widget class="QGroupBox" name="groupBoxMultiSend4">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -760,12 +766,12 @@
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_7">
              <item>
-              <widget class="QTextBrowser" name="textBrowser_5"/>
+              <widget class="QTextBrowser" name="textBrowserMultiSend4"/>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_8">
                <item>
-                <widget class="QPushButton" name="pushButton_9">
+                <widget class="QPushButton" name="pushButtonMultiSend4">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -784,7 +790,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QCheckBox" name="checkBox_5">
+                <widget class="QCheckBox" name="checkBoxHex4">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -808,7 +814,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_6">
+           <widget class="QGroupBox" name="groupBoxMultiSend5">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -820,12 +826,12 @@
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
-              <widget class="QTextBrowser" name="textBrowser_6"/>
+              <widget class="QTextBrowser" name="textBrowserMultiSend5"/>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_9">
                <item>
-                <widget class="QPushButton" name="pushButton_10">
+                <widget class="QPushButton" name="pushButtonMultiSend5">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -844,7 +850,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QCheckBox" name="checkBox_6">
+                <widget class="QCheckBox" name="checkBoxHex5">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -885,7 +891,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>939</width>
+     <width>931</width>
      <height>23</height>
     </rect>
    </property>
@@ -894,9 +900,27 @@
      <string>File</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionAbout_Qt"/>
+    <addaction name="actionAbout"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAbout_Qt">
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
