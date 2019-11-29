@@ -2,6 +2,7 @@
 #define COMTOOL_H
 
 #include <QMainWindow>
+#include <QList>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ComTool; }
@@ -17,5 +18,10 @@ public:
 
 private:
     Ui::ComTool *ui;
+
+    QList<QPointF> mData;
+    int mCount;
+    qreal mMaxY;
+    qreal mMinY;
 };
 #endif // COMTOOL_H
