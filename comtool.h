@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QList>
+#include <QtCharts>
+//#include <QAbstractAxis>
+//#include <QValueAxis>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ComTool; }
@@ -23,5 +26,7 @@ private:
     int mCount;
     qreal mMaxY;
     qreal mMinY;
+    QValueAxis *axisX;
+    QValueAxis *axisY;
 };
 #endif // COMTOOL_H
