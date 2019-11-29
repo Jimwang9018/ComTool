@@ -4,8 +4,9 @@
 #include <QMainWindow>
 #include <QList>
 #include <QtCharts>
-//#include <QAbstractAxis>
-//#include <QValueAxis>
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
+#include <QStringListModel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ComTool; }
@@ -19,6 +20,9 @@ public:
     ComTool(QWidget *parent = nullptr);
     ~ComTool();
 
+    QStringList getPortNameList();
+    void multiDendGroupBoxContrl(bool visible);
+    bool isSerialPortOpen = false;
 private:
     Ui::ComTool *ui;
 
@@ -28,5 +32,10 @@ private:
     qreal mMinY;
     QValueAxis *axisX;
     QValueAxis *axisY;
+
+    QSerialPort *mSerialPort;
+    QSerialPortInfo *mSerialPortInfo;
+    QStringList mPortNameList;
+    QStringListModel *mPortNameModel;
 };
 #endif // COMTOOL_H

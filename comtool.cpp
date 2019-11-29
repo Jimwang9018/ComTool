@@ -17,11 +17,16 @@ ComTool::ComTool(QWidget *parent)
 {
     ui->setupUi(this);
 
+    multiDendGroupBoxContrl(false);
+    mSerialPort = new QSerialPort();
+    mSerialPortInfo = new QSerialPortInfo();
+    mPortNameList = getPortNameList();
+
+    axisX = new QValueAxis;
+    axisY = new QValueAxis;
     QTimer *pTimer1 = new QTimer(this);
     QTimer *pTimer2 = new QTimer(this);
     QLineSeries *series = new QLineSeries();
-    axisX = new QValueAxis;
-    axisY = new QValueAxis;
 
     QChart *chart = new QChart();
     chart->legend()->hide();
@@ -73,8 +78,8 @@ ComTool::ComTool(QWidget *parent)
         mMinY = 0;
         axisX->setRange(0, 1);
         axisY->setRange(0, 1);
-//        series->attachAxis(axisX);
-//        series->attachAxis(axisY);
+        series->attachAxis(axisX);
+        series->attachAxis(axisY);
         pTimer2->start(2);
         qDebug() << "Button2";
     });
@@ -102,10 +107,9 @@ ComTool::ComTool(QWidget *parent)
         axisY->setRange(mMinY, mMaxY);
         series->attachAxis(axisX);
         series->attachAxis(axisY);
+
         series->append(point);
-        qDebug() << "max y = " << mMaxY << "min y = " << mMinY;
         ++ mCount;
-        //qDebug() << "time2 x = " << point.x() << " y = " << point.y();
     });
 
     connect(buttonStop, &QPushButton::clicked, [=]() {
@@ -118,12 +122,60 @@ ComTool::ComTool(QWidget *parent)
         mCount = 0;
         mMaxY = 0;
         mMinY = 0;
-//        mData.clear();
     });
 }
 
 ComTool::~ComTool()
 {
+    if(mSerialPort->isOpen())
+        mSerialPort->close();
+
+    delete mSerialPort;
+    delete mSerialPortInfo;
+    delete mPortNameModel;
+
+    delete axisX;
+    delete axisY;
+
     delete ui;
+}
+
+QStringList ComTool::getPortNameList()
+{
+    QStringList serialPortName;
+
+    foreach (*mSerialPortInfo, QSerialPortInfo::availablePorts()) {
+        serialPortName << mSerialPortInfo->portName();
+
+        if(!serialPortName.isEmpty()){
+            mPortNameModel = new QStringListModel(serialPortName, this);
+            ui->comboBoxPort->setModel(mPortNameModel);
+        }
+    }
+
+    mSerialPort->setParity(QSerialPort::NoParity);
+    mSerialPort->setBaudRate(QSerialPort::Baud115200);
+    mSerialPort->setDataBits(QSerialPort::Data8);
+    mSerialPort->setStopBits(QSerialPort::OneStop);
+    mSerialPort->setFlowControl(QSerialPort::NoFlowControl);
+
+    return serialPortName;
+}
+
+void ComTool::multiDendGroupBoxContrl(bool visible)
+{
+    if(visible){
+        ui->groupBoxMultiSend1->setVisible(true);
+        ui->groupBoxMultiSend2->setVisible(true);
+        ui->groupBoxMultiSend3->setVisible(true);
+        ui->groupBoxMultiSend4->setVisible(true);
+        ui->groupBoxMultiSend5->setVisible(true);
+    } else {
+        ui->groupBoxMultiSend1->setVisible(false);
+        ui->groupBoxMultiSend2->setVisible(false);
+        ui->groupBoxMultiSend3->setVisible(false);
+        ui->groupBoxMultiSend4->setVisible(false);
+        ui->groupBoxMultiSend5->setVisible(false);
+    }
 }
 
