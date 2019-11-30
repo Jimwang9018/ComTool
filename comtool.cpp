@@ -149,7 +149,6 @@ QStringList ComTool::getPortNameList()
         serialPortName << mSerialPortInfo->portName();
 
         if(!serialPortName.isEmpty()){
- //           mPortNameModel = new QStringListModel(serialPortName, this);
             mPortNameModel->setStringList(serialPortName);
             ui->comboBoxPort->setModel(mPortNameModel);
             ui->comboBoxPort->setCurrentText(serialPortName.first());
@@ -184,7 +183,7 @@ void ComTool::multiDendGroupBoxContrl(bool visible)
 
 void ComTool::on_pushButtonConnection_pressed()
 {
-    QStringList serialPortName;
+//    QStringList serialPortName;
 
 //    foreach (*mSerialPortInfo, QSerialPortInfo::availablePorts()) {
 //        serialPortName << mSerialPortInfo->portName();
@@ -211,32 +210,98 @@ void ComTool::on_pushButtonConnection_clicked()
 
 void ComTool::on_comboBoxPort_currentTextChanged(const QString &arg1)
 {
-
+    mSerialPort->setPortName(arg1);
 }
 
 void ComTool::on_comboBoxBaudrate_currentIndexChanged(int index)
 {
+    QSerialPort::BaudRate baudRate;
+    switch (index) {
+    case 0:
+        baudRate = QSerialPort::Baud115200; break;
+    case 1:
+        baudRate = QSerialPort::Baud9600; break;
+    case 2:
+        baudRate = QSerialPort::Baud19200; break;
+    case 3:
+        baudRate = QSerialPort::Baud38400; break;
+    case 4:
+        baudRate = QSerialPort::Baud57600; break;
+    default:
+        baudRate = QSerialPort::UnknownBaud; break;
+    }
 
+    mSerialPort->setBaudRate(baudRate);
 }
 
 void ComTool::on_comboBoxDataBits_currentIndexChanged(int index)
 {
+    QSerialPort::DataBits dataBits;
+    switch (index) {
+    case 0:
+        dataBits = QSerialPort::Data8; break;
+    case 1:
+        dataBits = QSerialPort::Data7; break;
+    case 2:
+        dataBits = QSerialPort::Data6; break;
+    case 3:
+        dataBits = QSerialPort::Data5; break;
+    default:
+        dataBits = QSerialPort::UnknownDataBits; break;
+    }
 
+    mSerialPort->setDataBits(dataBits);
 }
 
 void ComTool::on_comboBoxParity_currentIndexChanged(int index)
 {
+    QSerialPort::Parity parity;
+    switch (index) {
+    case 0:
+        parity = QSerialPort::NoParity; break;
+    case 1:
+        parity = QSerialPort::OddParity; break;
+    case 2:
+        parity = QSerialPort::EvenParity; break;
+    default:
+        parity = QSerialPort::UnknownParity; break;
+    }
 
+    mSerialPort->setParity(parity);
 }
 
 void ComTool::on_comboBoxStopBits_currentIndexChanged(int index)
 {
+    QSerialPort::StopBits stopBits;
+    switch (index) {
+    case 0:
+        stopBits = QSerialPort::OneStop; break;
+    case 1:
+        stopBits = QSerialPort::OneAndHalfStop; break;
+    case 2:
+        stopBits = QSerialPort::TwoStop; break;
+    default:
+        stopBits = QSerialPort::UnknownStopBits; break;
+    }
 
+    mSerialPort->setStopBits(stopBits);
 }
 
 void ComTool::on_comboBoxFlowType_currentIndexChanged(int index)
 {
+    QSerialPort::FlowControl flowControl;
+    switch (index) {
+    case 0:
+        flowControl = QSerialPort::NoFlowControl; break;
+    case 1:
+        flowControl = QSerialPort::HardwareControl; break;
+    case 2:
+        flowControl = QSerialPort::SoftwareControl; break;
+    default:
+        flowControl = QSerialPort::UnknownFlowControl; break;
+    }
 
+    mSerialPort->setFlowControl(flowControl);
 }
 
 void ComTool::on_radioButtonHex_clicked()
@@ -266,7 +331,11 @@ void ComTool::on_radioButtonASCII_2_clicked()
 
 void ComTool::on_checkBoxLoopSend_stateChanged(int arg1)
 {
-
+    if (arg1) {
+        ui->spinBoxLoopTime->setEnabled(false);
+    } else {
+        ui->spinBoxLoopTime->setEnabled(true);
+    }
 }
 
 void ComTool::on_pushButtonClearSend_clicked()
@@ -276,7 +345,11 @@ void ComTool::on_pushButtonClearSend_clicked()
 
 void ComTool::on_pushButtonMultiSend_clicked()
 {
-
+    if (ui->pushButtonMultiSend->isChecked()) {
+        multiDendGroupBoxContrl(true);
+    } else {
+        multiDendGroupBoxContrl(false);
+    }
 }
 
 void ComTool::on_pushButtonSend_clicked()

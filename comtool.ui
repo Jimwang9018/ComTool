@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>931</width>
+    <width>1036</width>
     <height>555</height>
    </rect>
   </property>
@@ -40,8 +40,8 @@
            <widget class="QGroupBox" name="groupBoxPortSetting">
             <property name="maximumSize">
              <size>
-              <width>150</width>
-              <height>16777215</height>
+              <width>160</width>
+              <height>230</height>
              </size>
             </property>
             <property name="title">
@@ -411,7 +411,7 @@
            <widget class="QGroupBox" name="groupBoxReceiveSetting">
             <property name="maximumSize">
              <size>
-              <width>150</width>
+              <width>160</width>
               <height>80</height>
              </size>
             </property>
@@ -490,7 +490,7 @@
            <widget class="QGroupBox" name="groupBoxSendSetting">
             <property name="maximumSize">
              <size>
-              <width>150</width>
+              <width>160</width>
               <height>110</height>
              </size>
             </property>
@@ -622,7 +622,7 @@
            <widget class="QGroupBox" name="groupBox_4">
             <property name="maximumSize">
              <size>
-              <width>150</width>
+              <width>160</width>
               <height>16777215</height>
              </size>
             </property>
@@ -729,6 +729,19 @@
         </item>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
           <item>
            <widget class="QGroupBox" name="groupBoxMultiSend1">
             <property name="maximumSize">
@@ -1067,7 +1080,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>931</width>
+     <width>1036</width>
      <height>23</height>
     </rect>
    </property>
