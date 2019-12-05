@@ -28,6 +28,8 @@ private slots:
 
     void on_pushButtonConnection_clicked();
 
+    void serialPortReceiveData();
+
     void on_comboBoxPort_currentTextChanged(const QString &arg1);
 
     void on_comboBoxBaudrate_currentIndexChanged(int index);

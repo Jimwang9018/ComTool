@@ -23,6 +23,8 @@ ComTool::ComTool(QWidget *parent)
     mPortNameModel = new QStringListModel();
     mPortNameList = getPortNameList();
 
+    //connect()
+
     axisX = new QValueAxis;
     axisY = new QValueAxis;
     QTimer *pTimer1 = new QTimer(this);
@@ -199,13 +201,27 @@ void ComTool::on_pushButtonConnection_clicked()
 {
     if(isSerialPortOpen) {
         isSerialPortOpen = false;
-//        mSerialPort->close();
+        if(mSerialPort->isOpen()) {
+            mSerialPort->close();
+        }
         serialPortUiClose();
         getPortNameList();
+
     } else {
         isSerialPortOpen = true;
+        if(mSerialPort->isOpen()) {
+            mSerialPort->close();
+        }
         serialPortUiOpen();
+        mSerialPort->open(QIODevice::ReadWrite);
+        connect(mSerialPort, SIGNAL(readyRead()),
+                this, SLOT(serialPortReceiveData()));
     }
+}
+
+void ComTool::serialPortReceiveData()
+{
+
 }
 
 void ComTool::on_comboBoxPort_currentTextChanged(const QString &arg1)

@@ -770,7 +770,7 @@ p, li { white-space: pre-wrap; }
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <item>
-              <widget class="QTextBrowser" name="textBrowserMultiSend1"/>
+              <widget class="QTextEdit" name="textEditMultiSend1"/>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -833,7 +833,7 @@ p, li { white-space: pre-wrap; }
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_5">
              <item>
-              <widget class="QTextBrowser" name="textBrowserMultiSend2"/>
+              <widget class="QTextEdit" name="textEditMultiSend2"/>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -896,7 +896,7 @@ p, li { white-space: pre-wrap; }
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_6">
              <item>
-              <widget class="QTextBrowser" name="textBrowserMultiSend3"/>
+              <widget class="QTextEdit" name="textEditMultiSend3"/>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -959,7 +959,7 @@ p, li { white-space: pre-wrap; }
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_7">
              <item>
-              <widget class="QTextBrowser" name="textBrowserMultiSend4"/>
+              <widget class="QTextEdit" name="textEditMultiSend4"/>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -1022,7 +1022,7 @@ p, li { white-space: pre-wrap; }
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
-              <widget class="QTextBrowser" name="textBrowserMultiSend5"/>
+              <widget class="QTextEdit" name="textEditMultiSend5"/>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_9">
