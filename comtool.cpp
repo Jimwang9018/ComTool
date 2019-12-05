@@ -21,6 +21,7 @@ ComTool::ComTool(QWidget *parent)
     mSerialPort = new QSerialPort();
     mSerialPortInfo = new QSerialPortInfo();
     mPortNameModel = new QStringListModel();
+    mSeries = new QLineSeries();
     mPortNameList = getPortNameList();
 
     //connect()
@@ -33,12 +34,12 @@ ComTool::ComTool(QWidget *parent)
 
     QChart *chart = new QChart();
     chart->legend()->hide();
-    chart->addSeries(series);
+    chart->addSeries(mSeries);
     axisX->setRange(0, 720);
     axisY->setRange(-1.1, 1.1);
     chart->addAxis(axisX, Qt::AlignBottom);
     chart->addAxis(axisY, Qt::AlignLeft);
-    chart->setTitle("Sin series");
+    chart->setTitle("Sin mSeries");
 
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
@@ -136,6 +137,7 @@ ComTool::~ComTool()
     delete mSerialPort;
     delete mSerialPortInfo;
     delete mPortNameModel;
+    delete mSeries;
 
     delete axisX;
     delete axisY;
@@ -199,13 +201,18 @@ void ComTool::on_pushButtonConnection_pressed()
 
 void ComTool::on_pushButtonConnection_clicked()
 {
+//    axisX = new QValueAxis;
+//    axisY = new QValueAxis;
+    //QLineSeries *series = new QLineSeries();
+
     if(isSerialPortOpen) {
         isSerialPortOpen = false;
         if(mSerialPort->isOpen()) {
             mSerialPort->close();
         }
         serialPortUiClose();
-        getPortNameList();
+        //getPortNameList();
+        qDebug() << "Close";
 
     } else {
         isSerialPortOpen = true;
@@ -214,6 +221,21 @@ void ComTool::on_pushButtonConnection_clicked()
         }
         serialPortUiOpen();
         mSerialPort->open(QIODevice::ReadWrite);
+
+        qDebug() << "Open";
+        mSeries->clear();
+        mData.clear();
+        mCount = 0;
+        axisX->setRange(0, 720);
+        axisY->setRange(-110, 110);
+        mSeries->attachAxis(axisX);
+        mSeries->attachAxis(axisY);
+        for (int i = 0; i < 720; i++) {
+            qreal x = i;
+            mData.append(QPointF(i, qSin(2.0 * 3.141592 * x / 360.0)));
+        }
+        mSeries->append(mData);
+
         connect(mSerialPort, SIGNAL(readyRead()),
                 this, SLOT(serialPortReceiveData()));
     }
@@ -221,7 +243,32 @@ void ComTool::on_pushButtonConnection_clicked()
 
 void ComTool::serialPortReceiveData()
 {
+    QString text = mSerialPort->readAll();
+    dataSize = text.size();
 
+    if((dataSize != 0) && (text.at(dataSize - 1) == '\n')) {
+        receiveText += text;
+
+        ui->textBrowserReceiveData->moveCursor(QTextCursor::End);
+        ui->textBrowserReceiveData->insertPlainText(receiveText);
+        qDebug() << "mData Double:" << receiveText.toDouble();
+        qDebug() << "mData:" << receiveText;
+
+        for (int i = 0; i < mData.size(); ++i)
+            mData[i].setX(mData.at(i).x() - 1);
+
+        mData.append(QPointF(720, receiveText.toDouble()));
+        mData.removeFirst();
+        mSeries->replace(mData);
+
+        ++ mCount;
+        if(mCount > 360)
+            mCount = 0;
+        receiveText.clear();
+
+    } else {
+        receiveText += text;
+    }
 }
 
 void ComTool::on_comboBoxPort_currentTextChanged(const QString &arg1)
@@ -421,6 +468,22 @@ void ComTool::on_pushButtonMultiSend5_clicked()
 void ComTool::on_checkBoxHex5_stateChanged(int arg1)
 {
 
+}
+
+void ComTool::serialPortPlot()
+{
+    //qreal x = mCount;
+    for (int i = 0; i < mData.size(); ++i)
+        mData[i].setX(mData.at(i).x() - 1);
+
+    mData.append(QPointF(720, mSerialPort->readAll().toInt()));
+    qDebug() << "series data:" << mSerialPort->readAll();
+    mData.removeFirst();
+    mSeries->replace(mData);
+
+    ++ mCount;
+    if(mCount > 360)
+        mCount = 0;
 }
 
 void ComTool::serialPortUiClose()
