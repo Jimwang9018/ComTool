@@ -251,8 +251,8 @@ void ComTool::serialPortReceiveData()
 
         ui->textBrowserReceiveData->moveCursor(QTextCursor::End);
         ui->textBrowserReceiveData->insertPlainText(receiveText);
-        qDebug() << "mData Double:" << receiveText.toDouble();
-        qDebug() << "mData:" << receiveText;
+//        qDebug() << "mData Double:" << receiveText.toDouble();
+//        qDebug() << "mData:" << receiveText;
 
         for (int i = 0; i < mData.size(); ++i)
             mData[i].setX(mData.at(i).x() - 1);
